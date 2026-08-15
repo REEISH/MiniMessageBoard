@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header style="margin-bottom: 2rem;">
+        <h1><%= title %></h1>
+        <a href="/new" class="btn-primary" style="display: inline-block; padding: 10px 15px; background: #007BFF; color: white; text-decoration: none; border-radius: 5px;">+ Add New Message</a>
+    </header>
+    
+    <main>
+        <h2>Recent Messages</h2>
+        
+        <% if (messages.length === 0) { %>
+            <p>No messages yet. Be the first to post!</p>
+        <% } else { %>
+            <div class="message-list">
+                <% messages.forEach((message, index) => { %>
+                    <article class="message-card" style="border: 1px solid #ddd; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <header>
+                            <strong><%= message.user %></strong> says:
+                        </header>
+                        
+                        <p><%= message.text %></p>
+                        
+                        <footer style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                            <span class="date" style="color: #666; font-size: 0.85em;"><%= message.added %></span>
+                            <a href="/<%= index %>" class="details-link">View Details &rarr;</a>
+                        </footer>
+                    </article>
+                <% }) %>
+            </div>
+        <% } %>
+    </main>
+</body>
+</html>

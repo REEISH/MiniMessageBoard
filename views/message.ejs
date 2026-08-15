@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1><%= title %></h1>
+    </header>
+
+    <main>
+      <article
+        class="message-card single-message"
+        style="
+          border: 1px solid #ddd;
+          padding: 1.5rem;
+          border-radius: 8px;
+          background: #f9f9f9;
+          margin-bottom: 2rem;
+        "
+      >
+        <p style="margin-bottom: 10px">
+          <strong>Author:</strong> <%= message.user %>
+        </p>
+        <p style="margin-bottom: 10px">
+          <strong>Message:</strong> <%= message.text %>
+        </p>
+        <p class="date" style="color: #666; font-size: 0.9em">
+          <strong>Date Added:</strong> <%= message.added %>
+        </p>
+      </article>
+
+      <a href="/" class="back-link">&larr; Back to Messages</a>
+    </main>
+  </body>
+</html>
